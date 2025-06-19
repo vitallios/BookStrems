@@ -4,62 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Онлайн библиотека</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-    <header>
-        <a href="#" class="back-btn" id="back-btn"><i class="fas fa-arrow-left"></i></a>
-        <h1 id="page-title">Онлайн библиотека</h1>
-    </header>
-    
-    <div class="container">
-        <!-- Главная страница -->
-        <div id="home-page" class="page active">
-            <div class="search-box">
-                <input type="text" id="search-input" placeholder="Поиск по названию или автору...">
-                <button id="search-btn"><i class="fas fa-search"></i></button>
+    <div class="app-container">
+        <header class="app-header">
+            <h1 id="page-title">Онлайн библиотека</h1>
+            <a href="#" id="back-btn" style="display: none;"><i class="fas fa-arrow-left"></i> Назад</a>
+        </header>
+        
+        <main class="app-main">
+            <div id="home-page" class="page active">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Поиск по книгам...">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="filters">
+                    <button class="filter-item active" data-filter="all">Все</button>
+                    <button class="filter-item" data-filter="fiction">Художественные</button>
+                    <button class="filter-item" data-filter="non-fiction">Научные</button>
+                </div>
+                
+                <div id="books-container" class="books-grid"></div>
             </div>
             
-            <div class="filters">
-                <div class="filter-item active" data-filter="all">Все</div>
-                <div class="filter-item" data-filter="fiction">Художественная</div>
-                <div class="filter-item" data-filter="biography">Биографии</div>
+            <div id="library-page" class="page">
+                <div id="favorites-container" class="books-grid"></div>
             </div>
             
-            <div id="books-container" class="books-grid">
-                <!-- Книги будут загружаться здесь -->
+            <div id="book-page" class="page">
+                <div id="book-detail" class="book-detail"></div>
             </div>
-        </div>
+        </main>
         
-        <!-- Моя библиотека -->
-        <div id="library-page" class="page">
-            <h2>Моя библиотека</h2>
-            <div id="favorites-container" class="books-grid">
-                <!-- Избранные книги будут здесь -->
-            </div>
-        </div>
-        
-        <!-- Страница книги -->
-        <div id="book-page" class="page">
-            <div id="book-detail" class="book-detail">
-                <!-- Детали книги будут здесь -->
-            </div>
-        </div>
+        <nav class="app-nav">
+            <a href="#" class="nav-item active" data-page="home-page">
+                <i class="fas fa-home"></i>
+                <span>Главная</span>
+            </a>
+            <a href="#" class="nav-item" data-page="library-page">
+                <i class="fas fa-bookmark"></i>
+                <span>Мои книги</span>
+            </a>
+        </nav>
     </div>
-    
-    <!-- Нижнее меню -->
-    <nav class="nav-bottom">
-        <a href="#" class="nav-item active" data-page="home-page">
-            <i class="fas fa-home"></i>
-            <span>Главная</span>
-        </a>
-        <a href="#" class="nav-item" data-page="library-page">
-            <i class="fas fa-bookmark"></i>
-            <span>Моя библиотека</span>
-        </a>
-    </nav>
 
-    <script src="script.js"></script>
+    <script type="module" src="./libraryApp.js"></script>
 </body>
 </html>
